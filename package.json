@@ -1,0 +1,23 @@
+{
+  "name": "virtual_keyboard",
+  "version": "1.0.0",
+  "description": "$ npm install -g sass",
+  "main": "script.js",
+  "dependencies": {
+    "eslint": "^6.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asindeton/virtual_keyboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asindeton/virtual_keyboard/issues"
+  },
+  "homepage": "https://github.com/Asindeton/virtual_keyboard#readme"
+}

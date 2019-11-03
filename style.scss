@@ -1,0 +1,108 @@
+$bg_color: #493E3F;
+$bg_color_keyboard: #736962;
+$bg_button: #4C4B40	;
+$bg_button_hover: #2F1417;
+
+body{
+    background: $bg_color;
+}
+
+.virtualKeyboard{
+    background: $bg_color_keyboard;
+    margin: 0 auto;
+    width: 764px;
+    padding: 5px;
+}
+
+.textArea{
+    margin: 0 auto;
+}
+
+.keyboard_row{
+    clear: both;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 8px;
+}
+
+.virtualKeyboard{
+    display: block;
+}
+
+.key{
+    background: $bg_button;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    float: left;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    color:white;
+    transition: all .1s ease-out;
+
+      &:hover{
+        background: $bg_button_hover;
+      } 
+      &:active{
+            border-radius: 20px;
+            background:#A49193;
+        }
+}
+
+.active{
+    border-radius: 20px;
+    background:#A49193;
+}
+
+textarea{
+    display: block;
+    width: 800px;
+    height: 300px;
+    margin: 0 auto 10px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.case{
+    display: inherit;
+    line-height: 40px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.backspace{
+    width: 104px;
+}
+
+.tab{
+    width: 50px;
+}
+
+.del{
+    width: 44px;
+}
+
+.capsLock{
+    width: 100px;
+}
+
+.enter{
+    width: 94px;
+}
+
+.shift{
+    width: 97px;
+}
+
+.space{
+    width: 354px;
+}
+
+.on{
+    display: block;
+}
+
+.off{
+    display: none;
+}
