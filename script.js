@@ -3,7 +3,7 @@ let test2 = '/';
 
 document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
 <div class="textArea">
-  <textarea name="" id="name" cols="30" rows="10" autofocus  placeholder="Write something here"></textarea>
+  <textarea name="textarea" id="name" class="textarea" cols="30" rows="10" autofocus  placeholder="Write something here"></textarea>
 </div>
 <div class="virtualKeyboard">
   <div class="keyboard_row">
@@ -14,7 +14,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
       </span>
       <span class="Back_quote off">
         <span class="case off">~</span>
-        <span class="case on">${test}</span>
+        <span class="case">${test}</span>
       </span>
     </div>
     <div class="key" id="Digit1">
@@ -24,17 +24,17 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit1 off">
           <span class="case off">!</span>
-          <span class="case on">1</span>
+          <span class="case">1</span>
         </span>
     </div>
     <div class="key" id="Digit2">
         <span class="digit2 on">
           <span class="case off">"</span>
-          <span class="case on">2</span>
+          <span class="case">2</span>
         </span>
         <span class="digit2 off">
           <span class="case off">@</span>
-          <span class="case on">2</span>
+          <span class="case">2</span>
         </span>
     </div>
     <div class="key" id="Digit3">
@@ -44,7 +44,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit3 off">
           <span class="case off">#</span>
-          <span class="case on">3</span>
+          <span class="case">3</span>
         </span>
     </div>
     <div class="key" id="Digit4">
@@ -54,7 +54,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit4 off">
           <span class="case off">$</span>
-          <span class="case on">4</span>
+          <span class="case">4</span>
         </span>
     </div>
     <div class="key" id="Digit5">
@@ -64,7 +64,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit5 off">
           <span class="case off">%</span>
-          <span class="case on">5</span>
+          <span class="case">5</span>
         </span>
     </div>
     <div class="key" id="Digit6">
@@ -74,7 +74,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit6 off">
           <span class="case off">^</span>
-          <span class="case on">6</span>
+          <span class="case">6</span>
         </span>
     </div>
     <div class="key" id="Digit7">
@@ -84,7 +84,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit7 off">
           <span class="case off">&</span>
-          <span class="case on">7</span>
+          <span class="case">7</span>
         </span>
     </div>
     <div class="key" id="Digit8">
@@ -94,7 +94,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit8 off">
           <span class="case off">*</span>
-          <span class="case on">8</span>
+          <span class="case">8</span>
         </span>
     </div>
     <div class="key" id="Digit9">
@@ -104,7 +104,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit9 off">
           <span class="case off">(</span>
-          <span class="case on">9</span>
+          <span class="case">9</span>
         </span>
     </div>
     <div class="key" id="Digit0">
@@ -114,7 +114,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit0 off">
           <span class="case off">)</span>
-          <span class="case on">0</span>
+          <span class="case">0</span>
         </span>
     </div>
     <div class="key" id="Minus">
@@ -124,7 +124,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
         <span class="digit- off">
           <span class="case off">_</span>
-          <span class="case on">-</span>
+          <span class="case">-</span>
         </span>
     </div>
     <div class="key" id="Equal">
@@ -138,12 +138,16 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
     </div>
     <div class="key backspace" id="Backspace">
-      <span class="case">Backspace</span>
+      <span class="case on">
+       <span class="case on">Backspace</span>
+      </span>
     </div>
   </div>
   <div class="keyboard_row">
     <div class="key tab" id="Tab">
-      <span class="case">Tab</span>
+      <span class="case on">
+        <span class="case on">Tab</span>
+      </span>
     </div>
     <div class="key" id="KeyQ">
         <span class="digitQ on">
@@ -276,7 +280,9 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
     </div>
     <div class="key del" id='Delete'>
-      <span class="case del">Del</span>
+      <span class="case del on">
+        <span class="case del on">Del</span>
+      </span>
     </div>
   </div>
   <div class="keyboard_row">
@@ -394,7 +400,9 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
     </div>
     <div class="key enter" id='Enter'>
-        <span class="case enter">Enter</span>
+      <span class="case on">     
+        <span class="case on">Enter</span>
+      </span>
     </div>
   </div>
   <div class="keyboard_row">
@@ -518,7 +526,11 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key" id="AltLeft">
       <span class="case alt_left">Alt</span>
     </div>
-    <div class="key space" id='Space'></div>
+    <div class="key space" id='Space'>
+      <span class="space on">
+        <span class="case on"> </span>
+      </span>
+    </div>
     <div class="key" id='AltRight'>
         <span class="case alt_right">Alt</span>
     </div>
@@ -569,3 +581,30 @@ document.onkeyup = function(e){
         }
      }
  }
+
+
+ document.onmousedown = function(){
+   let presButton = document.querySelectorAll(":hover>.on>.case.on");
+  for(let i=0; i < presButton.length; i++){
+    console.log(i+"ый элемент  = " + presButton[i].innerText);
+     if(presButton[i].innerText == ""){
+      document.querySelector('.textarea').value += ' ';
+      console.log('qwe');
+      break
+     } else if(presButton[i].innerText == "Del") {
+      console.log('qweqew');
+      break
+     }else if(presButton[i].innerText == "Backspace") {
+      console.log('qweqew123');
+      break
+     }else if(presButton[i].innerText == "Enter") {
+      document.querySelector('.textarea').value += "\n";
+      break
+     }
+     else if(presButton[i].innerText == "Tab") {
+      document.querySelector('.textarea').value += "\t";
+      break
+     }
+    document.querySelector('.textarea').value += presButton[i].innerText;
+  }
+   }
