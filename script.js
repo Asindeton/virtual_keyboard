@@ -659,7 +659,7 @@ document.onkeyup = function(e){
      } else if(presButton[i].innerText == "Del") {
       textarea.value = '';
       break
-     }else if(presButton[i].innerText == "c") {
+     }else if(presButton[i].innerText == "Backspace") {
       textarea.value = textarea.value.substring(0, textarea.value.length - 1);
       break
      }else if(presButton[i].innerText == "Enter") {
