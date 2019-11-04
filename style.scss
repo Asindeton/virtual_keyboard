@@ -3,6 +3,13 @@ $bg_color_keyboard: #736962;
 $bg_button: #4C4B40	;
 $bg_button_hover: #2F1417;
 
+
+@font-face {
+    font-family: 'Nunito';
+    src: url("./assets/fonts/Nunito/Nunito-Regular.ttf");
+}
+
+
 body{
     background: $bg_color;
 }
@@ -14,8 +21,13 @@ body{
     padding: 5px;
 }
 
+span{
+    font-family: 'Nunito', sans-serif;
+}
+
 .textArea{
     margin: 0 auto;
+    font-family: 'Nunito', sans-serif;
 }
 
 .keyboard_row{

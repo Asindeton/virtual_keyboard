@@ -30,11 +30,11 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key" id="Digit2">
         <span class="digit2 on">
           <span class="case off">"</span>
-          <span class="case">2</span>
+          <span class="case on">2</span>
         </span>
         <span class="digit2 off">
           <span class="case off">@</span>
-          <span class="case">2</span>
+          <span class="case on">2</span>
         </span>
     </div>
     <div class="key" id="Digit3">
@@ -140,14 +140,24 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key backspace" id="Backspace">
       <span class="case on">
        <span class="case on">Backspace</span>
+       <span class="case off">Backspace</span>
       </span>
+      <span class="case off">
+        <span class="case on">Backspace</span>
+        <span class="case off">Backspace</span>
+     </span>
     </div>
   </div>
   <div class="keyboard_row">
     <div class="key tab" id="Tab">
       <span class="case on">
         <span class="case on">Tab</span>
+        <span class="case off">Tab</span>
       </span>
+      <span class="case off">
+      <span class="case on">Tab</span>
+      <span class="case off">Tab</span>
+    </span>
     </div>
     <div class="key" id="KeyQ">
         <span class="digitQ on">
@@ -282,12 +292,24 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key del" id='Delete'>
       <span class="case del on">
         <span class="case del on">Del</span>
+        <span class="case del off">Del</span>
+      </span>
+      <span class="case del off">
+        <span class="case del on">Del</span>
+        <span class="case del off">Del</span>
       </span>
     </div>
   </div>
   <div class="keyboard_row">
     <div class="key capsLock" id='CapsLock'>
-        <span class="case caps">Caps Lock</span>
+      <span class="case on">
+        <span class="case caps off">Caps Lock</span>
+        <span class="case caps on">Caps Lock</span>
+      </span>
+      <span class="case off">
+      <span class="case caps off">Caps Lock</span>
+      <span class="case caps on">Caps Lock</span>
+    </span>
     </div>
     <div class="key" id='KeyA'>
         <span class="digitA on">
@@ -402,12 +424,24 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key enter" id='Enter'>
       <span class="case on">     
         <span class="case on">Enter</span>
+        <span class="case off">Enter</span>
+      </span>
+      <span class="case off">     
+        <span class="case on">Enter</span>
+        <span class="case off">Enter</span>
       </span>
     </div>
   </div>
   <div class="keyboard_row">
     <div class="key shift" id='ShiftLeft'>
-        <span class="case shift">Shift</span>
+      <span class="case on">  
+        <span class="case shift on">Shift</span>
+        <span class="case shift off">Shift</span>
+      </span>
+      <span class="case off">  
+        <span class="case shift on">Shift</span>
+        <span class="case shift off">Shift</span>
+      </span>
     </div>
     <div class="key" id='KeyZ'>
         <span class="digitZ on">
@@ -513,7 +547,14 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
       <span class="case arrow_up">▲</span>
     </div>
     <div class="key shift" id="ShiftRight">
-      <span class="case shift">Shift</span>
+      <span class="case shift on">
+        <span class="case shift off">Shift</span>
+        <span class="case shift on">Shift</span>
+      </span>
+      <span class="case shift off">
+        <span class="case shift off">Shift</span>
+        <span class="case shift on">Shift</span>
+      </span>
     </div>
   </div>
   <div class="keyboard_row">
@@ -523,7 +564,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     <div class="key" id = 'OSLeft'>
       <span class="case win">Win</span>
     </div>
-    <div class="key" id="AltLeft">
+    <div class="key alt" id="AltLeft">
       <span class="case alt_left">Alt</span>
     </div>
     <div class="key space" id='Space'>
@@ -531,7 +572,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         <span class="case on"> </span>
       </span>
     </div>
-    <div class="key" id='AltRight'>
+    <div class="key alt" id='AltRight'>
         <span class="case alt_right">Alt</span>
     </div>
     <div class="key" id='ArrowLeft'>
@@ -550,20 +591,38 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
     </div>       
 </div>`);
 
-let textarea = document.getElementById('name')
+let textarea = document.getElementById('name');
+let changeLang = document.querySelectorAll('.key>.on');
+let changeLang2 = document.querySelectorAll('.key>.off');
 
 document.onkeydown = function(e){
- let activeKey = document.getElementsByClassName("key");
- textarea.focus();
- let lang = 0;
+  let capsButton = document.querySelectorAll(".on>.case");
+  let activeKey = document.getElementsByClassName("key");
+  textarea.focus();
     for(let i = 0; i < activeKey.length;i++){
       if (activeKey[i].id == e.code){
         if (e.code == 'ShiftLeft'){
-          console.log("Шифт");
-          lang++;
+          for (let i = 0; i < capsButton.length; i++){
+            capsButton[i].classList.toggle('on');
+            capsButton[i].classList.toggle('off');
+          }
         } else if(e.code == 'CapsLock'){
-          console.log("Капслок");
+          for (let i = 0; i < capsButton.length; i++){
+            capsButton[i].classList.toggle('on');
+            capsButton[i].classList.toggle('off');
+          }
         } else if(e.code == 'Tab'){
+          textarea.value += "\t";
+          e.preventDefault();
+        } else if(e.code == 'AltLeft' && document.querySelectorAll('.key.shift.active').length ===1){
+          for (let i = 0; i < changeLang.length; i++){
+            changeLang[i].classList.toggle('on');
+            changeLang[i].classList.toggle('off');
+            changeLang2[i].classList.toggle('on');
+            changeLang2[i].classList.toggle('off');
+            e.preventDefault();
+          }
+        } else if(e.code == 'AltLeft'){
           e.preventDefault();
         }
         activeKey[i].classList.add('active');
@@ -572,12 +631,19 @@ document.onkeydown = function(e){
     }
 }
 
+
+
 document.onkeyup = function(e){
   let activeKey = document.getElementsByClassName("key");
+  let capsButton = document.querySelectorAll(".on>.case");
      for(let i = 0; i < activeKey.length;i++){
        if (activeKey[i].id == e.code){
          activeKey[i].classList.remove('active');
-         break
+        } else if (e.code == 'ShiftLeft'){
+          for (let i = 0; i < capsButton.length; i++){
+            capsButton[i].classList.toggle('on');
+            capsButton[i].classList.toggle('off');
+          }
         }
      }
  }
@@ -585,26 +651,37 @@ document.onkeyup = function(e){
 
  document.onmousedown = function(){
    let presButton = document.querySelectorAll(":hover>.on>.case.on");
+   let capsButton = document.querySelectorAll(".on>.case");
   for(let i=0; i < presButton.length; i++){
-    console.log(i+"ый элемент  = " + presButton[i].innerText);
      if(presButton[i].innerText == ""){
-      document.querySelector('.textarea').value += ' ';
-      console.log('qwe');
+      textarea.value += ' ';
       break
      } else if(presButton[i].innerText == "Del") {
-      console.log('qweqew');
+      textarea.value = '';
       break
-     }else if(presButton[i].innerText == "Backspace") {
-      console.log('qweqew123');
+     }else if(presButton[i].innerText == "c") {
+      textarea.value = textarea.value.substring(0, textarea.value.length - 1);
       break
      }else if(presButton[i].innerText == "Enter") {
-      document.querySelector('.textarea').value += "\n";
+      textarea.value += "\n";
       break
-     }
-     else if(presButton[i].innerText == "Tab") {
-      document.querySelector('.textarea').value += "\t";
+     }else if(presButton[i].innerText == "Tab") {
+      textarea.value += "\t";
       break
-     }
-    document.querySelector('.textarea').value += presButton[i].innerText;
+     }else if(presButton[i].innerText == 'Caps Lock'){
+      for (let i = 0; i < capsButton.length; i++){
+        capsButton[i].classList.toggle('on');
+        capsButton[i].classList.toggle('off');        
+      }
+      break
+    }else if(presButton[i].innerText == 'Shift'){
+      for (let i = 0; i < capsButton.length; i++){
+        capsButton[i].classList.toggle('on');
+        capsButton[i].classList.toggle('off');        
+      }
+      break
+    }
+
+    textarea.value += presButton[i].innerText;
   }
    }

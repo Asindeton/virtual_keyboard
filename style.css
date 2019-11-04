@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/fonts/Nunito/Nunito-Regular.ttf");
+}
 body {
   background: #493E3F;
 }
@@ -9,8 +13,13 @@ body {
   padding: 5px;
 }
 
+span {
+  font-family: "Nunito", sans-serif;
+}
+
 .textArea {
   margin: 0 auto;
+  font-family: "Nunito", sans-serif;
 }
 
 .keyboard_row {
