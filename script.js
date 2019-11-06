@@ -1,5 +1,7 @@
+
 let test = '`';
 let test2 = '/';
+
 
 document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
 <div class="textArea">
@@ -280,11 +282,11 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         </span>
     </div>
     <div class="key" id="Backslash">
-        <span class="digit\ on">
+        <span class="digit on">
           <span class="case off">/</span>
           <span class="case on">${test2}</span>
         </span>
-        <span class="digit\ off">
+        <span class="digit off">
           <span class="case off">|</span>
           <span class="case on">${test2}</span>
         </span>
